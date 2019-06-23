@@ -31,7 +31,6 @@ public class Booking {
         System.out.println("Total apartments: " + total);
         TimeUnit.SECONDS.sleep(3);
         page.sortPrices();
-
         driver.quit();
     }
 }
