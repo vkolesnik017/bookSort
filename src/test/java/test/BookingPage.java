@@ -1,5 +1,6 @@
 package test;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -36,28 +37,25 @@ public class BookingPage {
         driver.get("https://www.booking.com");
     }
 
-    public void minPriceApartment() throws InterruptedException {
+    public void sortPrices() throws InterruptedException {
 
-        List<WebElement> allPriceElements = driver.findElements(By.xpath("//div[contains(@class, 'price-display__value')]"));
-        List<Integer> allPrices = new ArrayList<Integer>();
-        for (WebElement e : allPriceElements) {
+        List<WebElement> allPricesElements = driver.findElements(By.xpath("//div[contains(@class, 'price-display__value')]"));
+        List<Integer> allPricesSorted = new ArrayList<Integer>();
+        for (WebElement e : allPricesElements) {
             if (!e.getText().isEmpty()) {
                 String price = e.getText().replaceAll("[^0-9]", "");
-                allPrices.add(Integer.parseInt(price));
+                allPricesSorted.add(Integer.parseInt(price));
             }
         }
 
-        List<Integer> sortPrice = new ArrayList<Integer>(allPrices);
-        Collections.sort(sortPrice);
-        sortList(sortPrice, allPrices);
+        List<Integer> sortedPricesList = new ArrayList<Integer>(allPricesSorted);
+        Collections.sort(sortedPricesList);
+        sortList(sortedPricesList, allPricesSorted);
     }
 
     public void sortList(List<Integer> first, List<Integer> second) {
-        if (second.equals(first)) {
-            System.out.println("Price sorting works correctly");
-        } else {
-            System.out.println("Price sorting doesn't work correctly");
-        }
+        Assert.assertEquals("Price sorting doesn't work correctly",second,first);
+        System.out.println("Price sorting works correctly");
     }
 
 }
