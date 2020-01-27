@@ -57,5 +57,22 @@ public class BookingPage {
         Assert.assertEquals("Price sorting doesn't work correctly",second,first);
         System.out.println("Price sorting works correctly");
     }
+    
+     /*     $(byId("login")).shouldBe(visible);
+        $(byId("login")).setValue("lion");
+        $(byId("password")).setValue("4e24e740");
+        $(".btn").click();
+        $(byId("form_Filter[orderId]")).setValue("26283402").pressEnter();
+        $(".order_link").shouldBe(visible).click();
+        $(byText("Изменить Статус Заказа")).scrollTo();
+        String statusOfOrder = $(".btn-link").getText().substring(16);
+        System.out.println(statusOfOrder);
+        if (statusOfOrder.equals("Testbestellunge")) {
+            System.out.println("всё ок");
+        } else {
+            System.out.println("хрень");
+            $(byId("form_OrderStatus[newStatus]")).selectOptionByValue("139");
+        }
+*/
 
 }
