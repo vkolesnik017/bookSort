@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Booking {
     WebDriver driver = new ChromeDriver();
-
+//was added a comment in Booking.java
     @Test
     public void testApartmentsSortingByPrice() throws InterruptedException {
         BookingPage page = PageFactory.initElements(driver, test.BookingPage.class);
